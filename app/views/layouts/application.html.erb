@@ -10,6 +10,21 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+      <%= link_to 'SKOL', root_path, class: 'navbar-brand' %>
+    </nav>
+    <div class="container">
+      <%= yield %>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <div class="row">
+      <div class="col-6 footer-blurb">
+        Created and styled by Dalton Sherwin<br />
+      </div>
+      </div>
+    </div>
   </body>
 </html>

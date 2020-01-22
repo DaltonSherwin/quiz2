@@ -1,0 +1,46 @@
+@import "bootstrap";
+
+body {
+  background: image_url('memphis-mini.png');
+  font-family: Constantia, "Lucida Bright", Lucidabright, "Lucida Serif", Lucida, "DejaVu Serif", "Bitstream Vera Serif", "Liberation Serif", Georgia, serif;
+}
+.navbar {
+  background: image_url('memphis-mini-dark.png');
+  box-shadow: 0px 1px 3px #2a2a2a;
+}
+.navbar-inverse .navbar-brand {
+  color: #875ee0;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  font-size: 40px; 
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
+.navbar-collapse {
+  color: #875ee0;
+}
+h1 {
+  color: #bfb23d;
+  text-align: center;
+}
+h2 {
+  color: #bfb23d;
+  text-align: center;
+}
+h3 {
+  color: #bfb23d;
+  text-align: center;
+}
+.footer-blurb {
+  font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", Baskerville, "Bookman Old Style", "Bitstream Charter", "Nimbus Roman No9 L", Garamond, "Apple Garamond", "ITC Garamond Narrow", "New Century Schoolbook", "Century Schoolbook", "Century Schoolbook L", Georgia, serif;
+  font-style: italic;
+  color: #875ee0;
+  font-size: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}
