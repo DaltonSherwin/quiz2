@@ -7,14 +7,36 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
+    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+      <%= link_to 'SKOL', root_path, class: 'navbar-brand' %>
+    </nav>
+  </head>
 
   <body>
+    <header class="row">
+      <div class="col-3">
+    <%= link_to root_path, class: 'logo' do %>
+       <div class="circle">
+        <br />
+        More
+        <br />
+        MN
+        <br />
+        Vikings
+      </div>
+    <% end %>
+      </div>
+      <div class="col col-sm-4 hidden-xs-down slogan">
+        Holding down the North 
+      </div>
+      <div class="col-10 offset-1 offset-sm-0 col-sm-5 links">
+        <!-- Button trigger modal -->
+    <%= link_to 'ADD', '#', data: {toggle: 'modal', target: '#myModal'} %>
+     &nbsp;&nbsp;
+      </div>
+    </header>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-      Add Player
-    </button>
+
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -24,36 +46,40 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">×</span>
             </button>
-            <h4 class="modal-title" id="myModalLabel">Contribute <%= simple_form_for @skol do |f| %>
-        <div class="modal-body">
-          <%= f.input :player, label: "Who is the player you want to add?", placeholder: "Randy Moss." %>
-          <br />
-          <%= f.input :position, label: "What position did this player play?", placeholder: "WR" %>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <%= f.submit 'Create', class: 'btn btn-danger' %>
-        </div>
-      <% end %>
+            <h4 class="modal-title" id="myModalLabel">Add Your Player</h4>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for Player.new do |f| %>
+            <%= f.input :name, label: "What is the name of the player you want to add?", placeholder: "Randy Moss" %>
+            <br />
+            <%= f.input :position, label: "What position does this player play?", placeholder: "WR" %>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <%= f.submit 'Create', class: 'btn btn-danger' %>
+            </div>
+          <% end %>
           </div>
         </div>
       </div>
     </div>
 
-    <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse">
-      <%= link_to 'SKOL', root_path, class: 'navbar-brand' %>
-    </nav>
+    <hr />
+
     <div class="container">
+      <% if flash[:error].present? %>
+        <div class="col-10 offset-1 alert alert-danger">
+          <%= flash[:error].html_safe %>
+        </div>
+      <% end %>
       <%= yield %>
     </div>
 
     <div class="footer">
       <div class="container">
         <div class="row">
-      <div class="col-6 footer-blurb">
-        Created and styled by <%= link_to "Dalton Sherwin", "https://github.com/DaltonSherwin" %>
+      <div class="col-12 col-sm-6 footer-blurb">
+        Created and styled by <%= link_to "Dalton Sherwin", "https://github.com/DaltonSherwin" %><br />
       </div>
       </div>
     </div>
-  </body>
-</html>
